@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navbar %}<nav class="navbar navbar-expand-lg navbar-light ">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo1.png' %}" alt=""></a>
+
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="{% url 'index' %}">Куда пицца <span class="sr-only">(current)</span></a>
+		      </li>
+
+		       {% if user.is_authenticated %}
+
+					<li id="profile" class="nav-item active">
+		        		<a class="nav-link" href="#"><img src="{% static 'img/profile.png' %}" alt=""></a>
+					</li>
+					  <li class="nav-item active">
+						<a class="nav-link" href="/logout">Выйти {{user.username}}</a>
+					  </li>
+
+
+				{% else %}
+						<li  style="margin-left:750px;" id="profile" class="nav-item active">
+		        			<a class="nav-link" href="#"><img src="{% static 'img/profile.png' %}" alt=""></a>
+						</li>
+					  <li class="nav-item active">
+						<a class="nav-link" href="/login">Войти</a>
+					  </li>
+
+      			{% endif %}
+		    </ul>
+
+		      <button id="korzina" class="btn  my-2 my-sm-0" type="submit"><a
+					  href="{% url 'cart' %}"><img src="{% static 'img/korzina.png' %}" alt=""></a></button>
+		  </div>
+		</nav>{% endblock %}
+
+
+{% block ggg %}
+		<div class="links mt-4">
+
+			<div class="nn">
+				<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/Pizza.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#pizza">Пицца</a></p>
+			</div>
+			<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/Sushi.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#sushi">Суши</a></p>
+			</div>
+			<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/juice.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#juice">Напитки</a></p>
+			</div>
+			<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/zakus.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#zakuska">Закуски</a></p>
+			</div>
+			<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/Combo.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#combo">Комбо</a></p>
+			</div>
+			<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/Dessert.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#dessert">Десерты</a></p>
+			</div>
+			<div class="cd">
+				<img style="width: 2rem;" class="card-img-top mb-2" src="{% static 'img/Sauce.png' %}" alt="Card image cap">
+		  		<p class="card-text"><a href="#sauce">Соусы</a></p>
+			</div>
+
+			</div>
+		</div>
+
+		<div class="add">
+			<img style="width: 250px;" src="{% static 'img/j1.png' %}" alt="">
+			<img style="width: 250px;" src="{% static 'img/j2.png' %}" alt="">
+			<img style="width: 250px;" src="{% static 'img/j3.png' %}" alt="">
+			<img style="width: 250px;" src="{% static 'img/j4.png' %}" alt="">
+		</div>
+{% endblock %}
+<!-- Card Done -->
+{% block content %}
+				<div id="pizza" class="product">
+					<h1 class="container mt-5">Пицца</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for e in pizza %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ e.image.url }}" alt="aa">
+										<p class="title">{{ e.name }}</p>
+										<p class="content">{{ e.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ e.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+
+				<div id="sushi" class="product">
+					<h1 class="container mt-2">Суши</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for e in sushi %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ e.image.url }}" alt="aa">
+										<p class="title mt-2">{{ e.name }}</p>
+										<p class="content">{{ e.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ e.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+
+				<div id="zakuska" class="product">
+					<h1 class="container mt-2">Закуски</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for e in zakuska %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ e.image.url }}" alt="gg">
+										<p class="title mt-3">{{ e.name }}</p>
+										<p class="content">{{ e.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ e.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+
+				<div id="dessert" class="product">
+					<h1 class="container mt-2">Десерты</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for g in dessert %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ g.image.url }}" alt="img">
+										<p class="title mt-3">{{ g.name }}</p>
+										<p class="content">{{ g.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ g.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+
+				<div id="juice" class="product">
+					<h1 class="container mt-2">Напитки</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for g in juice %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ g.image.url }}" alt="img">
+										<p class="title mt-3">{{ g.name }}</p>
+										<p class="content">{{ g.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ g.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+
+				<div id="sauce" class="product">
+					<h1 class="container mt-2">Соусы</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for g in sauce %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ g.image.url }}" alt="img">
+										<p class="title mt-3">{{ g.name }}</p>
+										<p class="content">{{ g.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ g.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+
+				<div id="combo" class="product mb-4">
+					<h1 class="container mt-2">Комбо</h1>
+					<div class="card-group ml-3 col-md-12">
+						<div class="row row-cols-1 row-cols-md-4 g-4">
+							{% for g in combo %}
+								<div style="width:250px;" class="card mr-4 mt-3 mb-4">
+										<img src="{{ g.image.url }}" alt="img">
+										<p class="title mt-3">{{ g.name }}</p>
+										<p class="content">{{ g.description }}</p>
+										<div class="func">
+											<button class="choose">Добавить</button>
+											<div class="price ml-3">{{ g.price }}₽</div>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+{% endblock %}
+
+<!-- пред футер -->
+{% block pred-footer %}
+	<div class="pred-footer">
+		<h1>Доставка пиццы в Жаркенте</h1>
+		<p>Захотелось чего-то вкусного и сытного? Желание простое и понятное, только в холодильнике все не то, и до магазина идти лень. Все пропало? Нет. Недорого заказать пиццу в Москве очень просто! Вам на помощь спешит супергерой – Domino’s Pizza! Как у всякого супергероя, у Domino’s Pizza есть свои суперсилы: восхитительный вкус продукции из отборных ингредиентов; широкий ассортимент, включающий легендарные, фирменные и классические виды, для вегетарианцев и любителей экспериментировать; быстрая и бесплатная доставка пиццы в течение 30 минут, чтобы вкусное и ароматное блюдо не успевало остыть.
+
+		Как сделать заказ
+		Доставка пиццы от Domino’s – это когда Вам не нужно никуда ехать или звонить, ведь есть Интернет. Никогда еще заказ пиццы на дом в Москве не был таким простым! Чтобы заказать пиццу онлайн, Вам необходимо: выбрать понравившийся вариант и количество порций; положить желаемое в «Корзину»; не уходить далеко, так как вкусная пицца на заказ с доставкой уже мчится к Вам из ближайшей пиццерии Domino’s. И не забудьте оплатить заказ курьеру!
+		</p>
+	</div>
+
+	<hr>
+{% endblock %}
+	<!-- Footer -->
+{% block footer %}<footer class="text-center text-lg-start bg-light text-muted">
+
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i><img style="margin-right: 10px;" src="{% static 'img/logo1.png' %}" alt=""><a href="#">Куда пицца</a>
+          </h6>
+
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Куда пицца
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">О компании</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Пользовательское соглашение</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Условия гарантии</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Помощь
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Ресторан</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Контакты</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Поддержка</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Отследить заказ</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
+          <p><i class="fas fa-home me-3"></i><img style="margin-right: 10px;" src="{% static 'img/phone.png' %}" alt="">+7 (926) 223-10-11</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            <img style="margin-right: 10px;" src="{% static 'img/address.png' %}" alt="">Москва, ул. Юных Ленинцев, д.99
+          </p>
+          <p><img style="margin-right: 10px;" src="{% static 'img/facebook.png' %}" alt=""><a href="#">Facebok</a></p>
+          <p><img style="margin-right: 10px;" src="{% static 'img/instagram.png' %}" alt=""><a href="#">Instagram</a></p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" >
+    © Copyright 2021 — Куда Пицца
+  </div>
+  <!-- Copyright -->
+</footer>{% endblock %}
+<!-- Footer -->
+
+
+
+
+

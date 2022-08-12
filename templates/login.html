@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block navbar %}<nav class="navbar navbar-expand-lg navbar-light ">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo1.png' %}" alt=""></a>
+
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="{% url 'index' %}">Куда пицца <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li style="margin-left:750px;" id="profile" class="nav-item active">
+		        <a class="nav-link" href="#"><img src="{% static 'img/profile.png' %}" alt=""></a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/login">Войти</a>
+		      </li>
+		    </ul>
+
+		      <button id="korzina" class="btn  my-2 my-sm-0" type="submit"><img src="{% static 'img/korzina.png' %}" alt=""><a
+					  href="#"></a></button>
+		  </div>
+		</nav>{% endblock %}
+{% block content %}
+
+
+<!--Login-->
+<div class="container py-5">
+  <h1>Войти в аккаунт</h1>
+  <form method="POST">
+    {% csrf_token %}
+	  {{ login_form }}
+    <button style="background: #FF7010;color:white;" class="btn mt-3" type="submit">Войти</button>
+  </form>
+  <p class="text-center">У вас нет аккаунта? <a href="/register">Создать аккаунт</a>.</p>
+</div>
+
+
+{% endblock %}
+
+

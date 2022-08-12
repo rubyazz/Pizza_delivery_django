@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+#korzina{
+	background: #FF7010;
+	border: 1px #FF7010;
+	padding: 10px 20px;
+	border-radius:4px;
+}
+#profile{
+	margin-left: 679px;
+}
+
+
+.nn{
+	display: flex;
+
+}
+.cd{
+	padding: 15px 35px;
+	margin-left: 20px;
+	text-align: center;
+	border: 1px solid #F0F0F0;
+	border-radius: 12px;
+}
+.add img{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.card-text a{
+	color: black;
+}
+.card-text a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+
+.title{
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	/* identical to box height, or 133% */
+	text-align: center;
+	display: flex;
+	align-items: center;
+	color: #19191;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin-left: 20px;
+}
+
+.content{
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+margin-left: 20px;
+margin-right: 5px;
+/* or 138% */
+
+
+/* Black */
+
+color: #191919;
+
+
+/* Inside auto layout */
+
+}
+.func{
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.choose{
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 13px 32px;
+	gap: 10px;
+
+	border: 1px #FF7010;
+	color: white;
+	/* Primary */
+	margin-left: 20px;
+	background: #FF7010;
+	border-radius: 6px;
+}
+.price{
+	/* Desktop/Subtitle */
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+
+display: flex;
+align-items: center;
+/* Primary */
+
+color: #FF7010;
+}
+
+.pred-footer h1{
+	/* Desktop/H2 */
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+/* identical to box height, or 125% */
+
+display: flex;
+align-items: center;
+
+/* Black */
+
+color: #191919;
+}
+
+
+.pred-footer p{
+	font-family: 'SF Pro Text';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+/* or 138% */
+
+background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #F9F9F9 100%), #191919;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+
+.pred-footer{
+	margin-left: 160px;
+	margin-bottom: 96px;
+}
+footer a{
+	color: black;
+}
+
+footer h6{
+	color: black;
+}
+footer p{
+	color: black;
+}
+
