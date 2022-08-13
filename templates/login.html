@@ -11,16 +11,30 @@
 		      <li class="nav-item active">
 		        <a class="nav-link" href="{% url 'index' %}">Куда пицца <span class="sr-only">(current)</span></a>
 		      </li>
-		      <li style="margin-left:750px;" id="profile" class="nav-item active">
-		        <a class="nav-link" href="#"><img src="{% static 'img/profile.png' %}" alt=""></a>
-		      </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="/login">Войти</a>
-		      </li>
+
+		       {% if user.is_authenticated %}
+
+					<li id="profile" class="nav-item active">
+		        		<a class="nav-link" href="#"><img src="{% static 'img/profile.png' %}" alt=""></a>
+					</li>
+					  <li class="nav-item active">
+						<a class="nav-link" href="/logout">Выйти {{user.username}}</a>
+					  </li>
+
+
+				{% else %}
+						<li  style="margin-left:750px;" id="profile" class="nav-item active">
+		        			<a class="nav-link" href="#"><img src="{% static 'img/profile.png' %}" alt=""></a>
+						</li>
+					  <li class="nav-item active">
+						<a class="nav-link" href="/login">Войти</a>
+					  </li>
+
+      			{% endif %}
 		    </ul>
 
-		      <button id="korzina" class="btn  my-2 my-sm-0" type="submit"><img src="{% static 'img/korzina.png' %}" alt=""><a
-					  href="#"></a></button>
+		      <button id="korzina" class="btn  my-2 my-sm-0" type="submit"><a
+					  href="{% url 'cart' %}"><img src="{% static 'img/korzina.png' %}" alt=""></a></button>
 		  </div>
 		</nav>{% endblock %}
 {% block content %}
